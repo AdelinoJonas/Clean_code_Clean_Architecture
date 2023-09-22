@@ -1,0 +1,11 @@
+COMANDO PARA RODAR NODE:
+
+npx ts-node src/main.ts
+
+COMANDO PARA CRIAR CONFIG:
+
+ npx ts-jest config:init
+
+COMANDO PARA RODAR JEST:
+
+npx jest

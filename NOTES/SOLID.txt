@@ -1,0 +1,7 @@
+SOLID PRINCIPLES
+
+Rígido, Frágil e Imóvel
+
+SRP - Single Responsibility Prynciple
+
+Separar coisas que mudam por motivos diferentes, responsabilidade significa motivo de mudança

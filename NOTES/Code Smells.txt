@@ -1,0 +1,52 @@
+1- NOMES RUINS:
+
+É um nome de variável, método, função, classe, arquivo, que não é suficientemente claro
+
+TÉCNICA DE REFACTORING:
+
+* renomear variável,
+* renomear método,
+* renomear função,
+* renomear classe,
+* renomear arquivo
+
+2- LINHAS EM BRANCO:
+
+TÉCNICA DE REFACTORING:
+
+* Apagar linhas em branco dentro de métodos e funções
+
+3- COMENTÁRIOS
+
+TÉCNICA DE REFACTORING:
+
+* Introduzir variavel explicativa
+Extrair métodos e funções
+
+4- CÓDIGO MORTO
+
+TÉCNICA DE REFACTORING:
+
+* Apagar CÓDIGO
+
+5- CONDIÇÕES CONFUSAS E ANINHADAS
+
+TÉCNICA DE REFACTORING:
+
+* Extrair condições,
+* Introduzir claúsulas de guarda (inverter as condições, e interromper o fluxo de execução para eliminar o else),
+* consolidar condições,
+* Introduzir ternário
+
+6- TRATAMENTO INADEQUADO DE ERROS OU EXCEÇÕES
+
+TÉCNICA DE REFACTORING:
+
+* Tratar adequadamente os erros ou execeções,
+
+7 - NÚMEROS MÁGICOS
+
+TÉCNICA DE REFACTORING:
+
+* Extrair constantes,
+* Extrair variáveis explicativas,
