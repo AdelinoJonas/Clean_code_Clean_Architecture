@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695242201504" clover="3.2.0">
-  <project timestamp="1695242201504" name="All files">
-    <metrics statements="20" coveredstatements="20" conditionals="22" coveredconditionals="22" methods="5" coveredmethods="5" elements="47" coveredelements="47" complexity="0" loc="20" ncloc="20" packages="1" files="1" classes="1"/>
-    <file name="RideCalculator.ts" path="F:\User\Documents\CURSO CLEAN CODE\backend\ride\src\RideCalculator.ts">
-      <metrics statements="20" coveredstatements="20" conditionals="22" coveredconditionals="22" methods="5" coveredmethods="5"/>
-      <line num="3" count="20" type="cond" truecount="2" falsecount="0"/>
-      <line num="7" count="10" type="stmt"/>
-      <line num="11" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="15" count="6" type="cond" truecount="2" falsecount="0"/>
-      <line num="18" count="1" type="stmt"/>
-      <line num="19" count="7" type="stmt"/>
-      <line num="20" count="7" type="stmt"/>
-      <line num="21" count="7" type="stmt"/>
-      <line num="22" count="7" type="cond" truecount="1" falsecount="0"/>
-      <line num="23" count="6" type="cond" truecount="1" falsecount="0"/>
-      <line num="24" count="5" type="cond" truecount="3" falsecount="0"/>
-      <line num="25" count="1" type="stmt"/>
-      <line num="27" count="5" type="cond" truecount="3" falsecount="0"/>
-      <line num="28" count="1" type="stmt"/>
-      <line num="30" count="5" type="cond" truecount="3" falsecount="0"/>
-      <line num="31" count="1" type="stmt"/>
-      <line num="33" count="5" type="cond" truecount="3" falsecount="0"/>
-      <line num="34" count="2" type="stmt"/>
-      <line num="37" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="38" count="5" type="stmt"/>
+<coverage generated="1696358939347" clover="3.2.0">
+  <project timestamp="1696358939347" name="All files">
+    <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7" elements="30" coveredelements="30" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
+    <file name="CpfValidator.ts" path="F:\User\Documents\Clean_code_Clean_Architecture\backend\ride\src\CpfValidator.ts">
+      <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+      <line num="2" count="6" type="stmt"/>
+      <line num="6" count="6" type="stmt"/>
+      <line num="10" count="19" type="stmt"/>
+      <line num="14" count="4" type="stmt"/>
+      <line num="18" count="8" type="stmt"/>
+      <line num="19" count="8" type="stmt"/>
+      <line num="20" count="88" type="cond" truecount="1" falsecount="0"/>
+      <line num="22" count="8" type="stmt"/>
+      <line num="23" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="7" type="cond" truecount="1" falsecount="0"/>
+      <line num="28" count="6" type="stmt"/>
+      <line num="29" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="30" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="31" count="4" type="stmt"/>
+      <line num="32" count="4" type="stmt"/>
+      <line num="34" count="4" type="stmt"/>
     </file>
   </project>
 </coverage>

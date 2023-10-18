@@ -49,4 +49,12 @@ TÉCNICA DE REFACTORING:
 TÉCNICA DE REFACTORING:
 
 * Extrair constantes,
-* Extrair variáveis explicativas,
+* Extrair variáveis explicativas
+
+8 - MÉTODO LONGO
+
+9 - CLASSE LONGA
+
+10 - REGEXP MUITO COMPLEXO
+
+* Simplificar REGEXP
