@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 test("Deve fazer o cálculo do preço de uma corrida durante o dia", async function(){
