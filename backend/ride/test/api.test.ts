@@ -16,7 +16,7 @@ test("Deve cadastrar um passageiro", async function(){
   const input = {
     name: "John Doe",
     email: "jhon.doe@gmail.com",
-    document: "83432616074"
+    document: "83432616683"
   };
   const responseCreatePassenger = await axios.post("http://localhost:3000/passengers", input);
   const outputCreatePassenger = responseCreatePassenger.data;
