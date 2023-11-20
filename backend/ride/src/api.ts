@@ -54,5 +54,5 @@ app.post("/passengers/:passengerId", function (req, res) {
 });
 
 app.listen(3000, () => {
-  console.log(`Servidor ouvindo na porta 3000`);
+  console.log(`Servidor ouvindo na porta http://localhost:3000/`);
 });
