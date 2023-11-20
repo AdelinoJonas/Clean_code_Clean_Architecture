@@ -20,6 +20,7 @@ test("Deve cadastrar um passageiro", async function(){
   };
   const responseCreatePassenger = await axios.post("http://localhost:3000/passengers", input);
   const outputCreatePassenger = responseCreatePassenger.data;
+  console.log(outputCreatePassenger)
   expect(outputCreatePassenger.passengerId).toBeDefined();
   const response2 = await axios.post(`http://localhost:3000/passengers/${outputCreatePassenger.passengerId}`);
   const output2 = response2.data;

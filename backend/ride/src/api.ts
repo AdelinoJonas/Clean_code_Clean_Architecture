@@ -6,8 +6,8 @@ const knex = require('knex')({
   connection: {
     host : '0.0.0.0',
     port : 3318,
-    user : 'patrick',
-    password : '123123',
+    user : 'jonas',
+    password : '123456',
     database : 'my_uber_db'
   },
   useNullAsDefault: true
@@ -32,6 +32,7 @@ app.post("/calculate_ride", function (req, res) {
 app.post("/passengers", async function (req, res) {
   try {
     const { name, email, document } = req.body;
+
     await knex('passenger').insert({
       name,
       email,
@@ -52,6 +53,6 @@ app.post("/passengers/:passengerId", function (req, res) {
   }
 });
 
-app.listen(3010, () => {
+app.listen(3000, () => {
   console.log(`Servidor ouvindo na porta 3000`);
 });
