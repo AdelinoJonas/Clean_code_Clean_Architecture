@@ -25,12 +25,10 @@ function calculateDigit (cpf: string, factor: number) {
 }
 
 export function validate(cpf: string) {
-  if (!cpf) return false;
   cpf = clean(cpf);
   if (isValidLength(cpf)) return false;
   if (hasDigitsEqual(cpf)) return false;
   let dg1 = calculateDigit(cpf, 10);
   let dg2 = calculateDigit(cpf, 11);
-
   return extractCheckDigit(cpf) === `${dg1}${dg2}`;
 }
