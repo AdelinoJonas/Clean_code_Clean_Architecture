@@ -38,7 +38,7 @@ app.post("/passengers", async function (req, res) {
       email,
       document,
     });
-    return res.json({ message: 'Created successfully!' });
+    return res.json({ document });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: 'Internal server error', message: error.message });
