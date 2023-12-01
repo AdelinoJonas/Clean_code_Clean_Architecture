@@ -2,6 +2,7 @@
 import express from "express";
 import Ride from "./Ride";
 import crypto from "crypto";
+import { validate } from "./CpfValidator";
 const knex = require('knex')({
   client: 'mysql',
   connection: {
@@ -25,7 +26,7 @@ app.post("/calculate_ride", function (req, res) {
     }
     const price = ride.calculate();
     return res.json({ price });
-  } catch (e) {
+  } catch (e: any) {
     return res.status(422).send(e.message);
   }
 });
@@ -33,15 +34,15 @@ app.post("/calculate_ride", function (req, res) {
 app.post("/passengers", async function (req, res) {
   try {
     const { name, email, document } = req.body;
+    if (!validate(req.body.document)) throw new Error("Invalid cpf");
     const passengerData = await knex('passenger').insert({
         name,
         email,
         document,
       });
     return res.status(201).json(passengerData);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Internal server error', message: error.message });
+  } catch (e: any) {
+    return res.status(422).send(e.message);
   }
 });
 
@@ -56,9 +57,10 @@ app.get("/passengers/:passengerId",async function (req, res) {
     if (!passengerData) {
       return res.status(404).json({ error: "Passenger not found" });
     }
-    return res.json({message: passengerData});
-  } catch (e) {
-    return res.status(500).json({ e: 'Internal server error', message: error.message });
+    console.log(passengerData);
+    return res.json(passengerData);
+  } catch (e: any) {
+    return res.status(422).send(e.message);
   }
 });
 
