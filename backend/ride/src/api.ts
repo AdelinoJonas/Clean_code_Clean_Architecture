@@ -1,7 +1,6 @@
 //@ts-nocheck
 import express from "express";
 import Ride from "./Ride";
-import crypto from "crypto";
 import { validate } from "./CpfValidator";
 const knex = require('knex')({
   client: 'mysql',
@@ -49,7 +48,6 @@ app.post("/passengers", async function (req, res) {
 app.get("/passengers/:passengerId",async function (req, res) {
   try {
     const passengerId = req.params.passengerId;
-    console.log("passengerId",passengerId);
     const passengerData = await knex('passenger')
       .select()
       .where('passenger_id', passengerId)
@@ -57,8 +55,39 @@ app.get("/passengers/:passengerId",async function (req, res) {
     if (!passengerData) {
       return res.status(404).json({ error: "Passenger not found" });
     }
-    console.log(passengerData);
     return res.json(passengerData);
+  } catch (e: any) {
+    return res.status(422).send(e.message);
+  }
+});
+
+app.post("/driver", async function (req, res) {
+  try {
+    const { name, email, document, car_plate } = req.body;
+    if (!validate(req.body.document)) throw new Error("Invalid cpf");
+    const driverData = await knex('driver').insert({
+        name,
+        email,
+        document,
+        car_plate
+      });
+    return res.status(201).json(driverData);
+  } catch (e: any) {
+    return res.status(422).send(e.message);
+  }
+});
+
+app.get("/driver/:driverId",async function (req, res) {
+  try {
+    const driverId = req.params.driverId;
+    const driverData = await knex('driver')
+      .select()
+      .where('driver_id', driverId)
+      .first();
+    if (!driverData) {
+      return res.status(404).json({ error: "driver not found" });
+    }
+    return res.json(driverData);
   } catch (e: any) {
     return res.status(422).send(e.message);
   }
