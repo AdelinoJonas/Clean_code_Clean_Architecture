@@ -1,8 +1,8 @@
 //@ts-nocheck
 import express from "express";
-import { validate } from "./CpfValidator";
 import CalculateRide from "./application/usecase/CalculateRide";
 import CreatePassenger from "./application/usecase/CreatePassenger";
+import CreateDriver from "./application/usecase/CreateDriver";
 const knex = require('knex')({
   client: 'mysql',
   connection: {
@@ -56,15 +56,9 @@ app.get("/passengers/:passengerId",async function (req, res) {
 
 app.post("/driver", async function (req, res) {
   try {
-    const { name, email, document, car_plate } = req.body;
-    if (!validate(req.body.document)) throw new Error("Invalid cpf");
-    const driverData = await knex('driver').insert({
-        name,
-        email,
-        document,
-        car_plate
-      });
-    return res.status(201).json(driverData);
+    const useCase = new CreateDriver();
+    const output = await useCase.execute(req.body);  
+    return res.json(output);
   } catch (e: any) {
     return res.status(422).send(e.message);
   }
