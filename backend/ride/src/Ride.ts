@@ -2,7 +2,6 @@ import Segment from "./Segment";
 
 export default class Ride {
   segments: Segment[];
-
   OVERNIGH_FARE = 3.90;
   OVERNIGHT_SUNDAY_FARE = 5;
   SUNDAY_FARE = 2.9;
