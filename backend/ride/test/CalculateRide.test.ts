@@ -1,5 +1,4 @@
 import CalculateRide from "../src/application/usecase/CalculateRide";
-import UseCase from "../src/application/usecase/UseCase";
 
 test("Deve fazer o cálculo do preço de uma corrida durante o dia", async function(){
   const input = {

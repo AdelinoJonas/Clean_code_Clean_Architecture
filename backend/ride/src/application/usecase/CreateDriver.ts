@@ -24,7 +24,6 @@ export default class CreateDriver {
         document,
         car_plate
       });
-      console.log("driverData", driverData)
     return (driverData);
   }
 }
