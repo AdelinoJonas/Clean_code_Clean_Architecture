@@ -1,15 +1,5 @@
 import { validate } from "../../CpfValidator";
-const knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host : '0.0.0.0',
-    port : 3318,
-    user : 'jonas',
-    password : '123456',
-    database : 'my_uber_db'
-  },
-  useNullAsDefault: true
-});
+const knex = require('../../../knex.js');
 
 export default class CreateDriver {
   constructor () {
