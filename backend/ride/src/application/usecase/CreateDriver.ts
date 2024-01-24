@@ -24,7 +24,7 @@ export default class CreateDriver {
         document,
         car_plate
       });
-    return (driverData);
+    return {driver_id: driverData[0]};
   }
 }
 
