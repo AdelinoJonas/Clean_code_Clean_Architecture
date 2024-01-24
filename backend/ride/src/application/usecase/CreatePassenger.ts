@@ -23,7 +23,7 @@ export default class CreatePassenger {
         email,
         document,
       });
-    return (passengerData);
+    return {passenger_id: passengerData[0]};
   }
 }
 
