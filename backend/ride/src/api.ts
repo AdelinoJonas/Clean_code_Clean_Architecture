@@ -1,21 +1,10 @@
 //@ts-nocheck
 import express from "express";
 import CalculateRide from "./application/usecase/CalculateRide";
-import CreatePassenger from "./application/usecase/CreatePassenger";
 import CreateDriver from "./application/usecase/CreateDriver";
+import CreatePassenger from "./application/usecase/CreatePassenger";
+import GetDriver from "./application/usecase/GetDriver";
 import GetPassenger from "./application/usecase/GetPassenger";
-
-const knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host : '0.0.0.0',
-    port : 3318,
-    user : 'jonas',
-    password : '123456',
-    database : 'my_uber_db'
-  },
-  useNullAsDefault: true
-});
 
 const app = express();
 app.use(express.json());
@@ -43,7 +32,10 @@ app.post("/passengers", async function (req, res) {
 app.get("/passengers/:passengerId",async function (req, res) {
   try {
     const useCase = new GetPassenger();
-    const output = await useCase.execute({ passengerId: req.params.passengerId });
+    const output = await useCase.execute({ passengerId: req.params.passengerId });    
+    if (!output) {
+      return res.status(404).json({ error: "passenger not found" });
+    }
     return res.json(output);
   } catch (e: any) {
     return res.status(422).send(e.message);
@@ -62,15 +54,12 @@ app.post("/driver", async function (req, res) {
 
 app.get("/driver/:driverId",async function (req, res) {
   try {
-    const driverId = req.params.driverId;
-    const driverData = await knex('driver')
-      .select()
-      .where('driver_id', driverId)
-      .first();
-    if (!driverData) {
+    const usecase = new GetDriver();
+    const output = await usecase.execute({ driverId: req.params.driverId });
+    if (!output) {
       return res.status(404).json({ error: "driver not found" });
     }
-    return res.json(driverData);
+    return res.json(output);
   } catch (e: any) {
     return res.status(422).send(e.message);
   }

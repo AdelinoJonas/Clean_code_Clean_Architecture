@@ -10,6 +10,7 @@ export default class GetPassenger {
     .select()
     .where('passenger_id', passengerId)
     .first();
+    
     return {
       passengerId: passengerData.passenger_id,
       name: passengerData.name,

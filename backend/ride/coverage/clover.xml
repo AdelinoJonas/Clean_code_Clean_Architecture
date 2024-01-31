@@ -1,26 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1696358939347" clover="3.2.0">
-  <project timestamp="1696358939347" name="All files">
-    <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7" elements="30" coveredelements="30" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
-    <file name="CpfValidator.ts" path="F:\User\Documents\Clean_code_Clean_Architecture\backend\ride\src\CpfValidator.ts">
-      <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
-      <line num="2" count="6" type="stmt"/>
-      <line num="6" count="6" type="stmt"/>
-      <line num="10" count="19" type="stmt"/>
-      <line num="14" count="4" type="stmt"/>
-      <line num="18" count="8" type="stmt"/>
-      <line num="19" count="8" type="stmt"/>
-      <line num="20" count="88" type="cond" truecount="1" falsecount="0"/>
-      <line num="22" count="8" type="stmt"/>
-      <line num="23" count="8" type="cond" truecount="2" falsecount="0"/>
-      <line num="26" count="1" type="stmt"/>
-      <line num="27" count="7" type="cond" truecount="1" falsecount="0"/>
-      <line num="28" count="6" type="stmt"/>
-      <line num="29" count="6" type="cond" truecount="1" falsecount="0"/>
-      <line num="30" count="5" type="cond" truecount="1" falsecount="0"/>
-      <line num="31" count="4" type="stmt"/>
-      <line num="32" count="4" type="stmt"/>
-      <line num="34" count="4" type="stmt"/>
-    </file>
+<coverage generated="1706720248932" clover="3.2.0">
+  <project timestamp="1706720248933" name="All files">
+    <metrics statements="120" coveredstatements="120" conditionals="62" coveredconditionals="59" methods="38" coveredmethods="38" elements="220" coveredelements="217" complexity="0" loc="120" ncloc="120" packages="3" files="12" classes="12"/>
+    <package name="ride">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="0" coveredmethods="0"/>
+      <file name="knex.js" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\knex.js">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="knexfile.js" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\knexfile.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="ride.src">
+      <metrics statements="85" coveredstatements="85" conditionals="58" coveredconditionals="57" methods="28" coveredmethods="28"/>
+      <file name="Cpf.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\Cpf.ts">
+        <metrics statements="20" coveredstatements="20" conditionals="7" coveredconditionals="7" methods="8" coveredmethods="8"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="10" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="88" type="cond" truecount="1" falsecount="0"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="25" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="37" count="5" type="stmt"/>
+        <line num="38" count="19" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+      </file>
+      <file name="CpfValidator.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\CpfValidator.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="5" coveredconditionals="5" methods="7" coveredmethods="7"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
+        <line num="11" count="27" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
+        <line num="21" count="176" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="24" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="28" count="11" type="stmt"/>
+        <line num="29" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="32" count="8" type="stmt"/>
+        <line num="33" count="8" type="stmt"/>
+      </file>
+      <file name="Ride.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\Ride.ts">
+        <metrics statements="20" coveredstatements="20" conditionals="14" coveredconditionals="13" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="35" count="5" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="RideCalculator.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\RideCalculator.ts">
+        <metrics statements="20" coveredstatements="20" conditionals="22" coveredconditionals="22" methods="5" coveredmethods="5"/>
+        <line num="3" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="12" type="stmt"/>
+        <line num="11" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="24" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="37" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="6" type="stmt"/>
+      </file>
+      <file name="Segment.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\Segment.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="15" count="8" type="cond" truecount="3" falsecount="0"/>
+        <line num="19" count="7" type="cond" truecount="3" falsecount="0"/>
+      </file>
+    </package>
+    <package name="ride.src.application.usecase">
+      <metrics statements="30" coveredstatements="30" conditionals="2" coveredconditionals="0" methods="10" coveredmethods="10"/>
+      <file name="CalculateRide.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\application\usecase\CalculateRide.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+      </file>
+      <file name="CreateDriver.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\application\usecase\CreateDriver.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+      </file>
+      <file name="CreatePassenger.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\application\usecase\CreatePassenger.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+      </file>
+      <file name="GetDriver.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\application\usecase\GetDriver.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+      <file name="GetPassenger.ts" path="F:\User\Documents\projetos\Clean_code_Clean_Architecture\backend\ride\src\application\usecase\GetPassenger.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

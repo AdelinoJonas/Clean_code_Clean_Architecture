@@ -38,21 +38,6 @@ test("Não deve cadastrar um passageiro com cpf invalido", async function(){
   expect(output).toBe("Invalid cpf")
 });
 
-// test("Deve obter um passageiro", async function(){
-//   const input = {
-//     name: "John Does",
-//     email: "jhon.does@gmail.com",
-//     document: "83432616074"
-//   };
-//   const response1 = await axios.post("http://localhost:3000/passengers", input);
-//   const outputCreatePassenger = response1.data;
-//   const response2 = await axios.get(`http://localhost:3000/passengers/${outputCreatePassenger}`);
-//   const output2 = response2.data;
-//   expect(output2.name).toBe("John Does");
-//   expect(output2.email).toBe("jhon.does@gmail.com");
-//   expect(output2.document).toBe("83432616074");
-// });
-
 test("Deve cadastrar o motorista", async function(){
   const input = {
     name: "John Doe",
@@ -64,23 +49,6 @@ test("Deve cadastrar o motorista", async function(){
   const tryCreateDriverResponse = tryCreateDriver.data;
   expect(tryCreateDriverResponse).toBeDefined();
 });
-
-// test("Deve obter o motorista", async function(){
-//   const input = {
-//     name: "John Does",
-//     email: "jhon.does@gmail.com",
-//     document: "83432616074",
-//     car_plate: "AAA999"
-//   };
-//   const response1 = await axios.post("http://localhost:3000/driver", input);
-//   const outputCreateDriver = response1.data;
-//   const response2 = await axios.get(`http://localhost:3000/driver/${outputCreateDriver}`);
-//   const output2 = response2.data;
-//   expect(output2.name).toBe("John Does");
-//   expect(output2.email).toBe("jhon.does@gmail.com");
-//   expect(output2.document).toBe("83432616074");
-//   expect(output2.car_plate).toBe("AAA999");
-// });
 
 test("Não deve cadastrar um motorista com cpf invalido", async function(){
   const input = {

@@ -12,7 +12,7 @@ export default class CreatePassenger {
         name,
         email,
         document,
-      });
+      });    
     return {passenger_id: passengerData[0]};
   }
 }
