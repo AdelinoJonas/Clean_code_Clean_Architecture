@@ -1,20 +1,22 @@
 import { validate } from "../../CpfValidator";
-const knex = require('../../../knex.js');
+import DriverRepository from "../../infra/repository/DriverRepository";
 
 export default class CreateDriver {
   constructor () {
   }
 
   async execute (input: Input): Promise<Output> {
-    const { name, email, document, car_plate } = input;
     if (!validate(input.document)) throw new Error("Invalid cpf");
-    const driverData = await knex('driver').insert({
-        name,
-        email,
-        document,
-        car_plate
-      });
-    return {driver_id: driverData[0]};
+    const driverRepository = new DriverRepository();
+    const driverData = await driverRepository.save({
+      name: input.name,
+      email: input.email,
+      document: input.document,
+      car_plate: input.car_plate
+    });
+    console.log(driverData);
+    
+    return { driver_id: driverData[0] };
   }
 }
 
@@ -26,5 +28,5 @@ type Input = {
 }
 
 type Output = {
-  driver_id: string
+  driver_id: any
 }

@@ -6,6 +6,7 @@ export default class GetDriver {
   
   async execute (input: Input): Promise<Output> {
     const { driverId } = input;
+    console.log('aaaaaaaaaaaaaaaaa', driverId);
     const driverData = await knex('driver')
     .select()
     .where('driver_id', driverId)
