@@ -44,6 +44,7 @@ test("Deve obter um motorista", async function(){
   expect(output1.document).toBe("83432616074");
   expect(output1.car_plate).toBe("AAA999");
 });
+
 // test("Deve obter um motorista", async function(){
 //   const input = {
 //     name: "John Does",

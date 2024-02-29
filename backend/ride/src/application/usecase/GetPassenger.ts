@@ -1,15 +1,13 @@
+import PassengerRepository from "../repository/PassengerRepository";
+
 const knex = require('../../../knex.js');
 
 export default class GetPassenger {
-  constructor () {
+  constructor (readonly passengerRepository: PassengerRepository) {
   }
   
   async execute (input: Input): Promise<Output> {
-    const { passengerId } = input;
-    const passengerData = await knex('passenger')
-    .select()
-    .where('passenger_id', passengerId)
-    .first();
+    const passengerData = await this.passengerRepository.get(input.passengerId);
     
     return {
       passengerId: passengerData.passenger_id,

@@ -5,6 +5,8 @@ import CreateDriver from "./application/usecase/CreateDriver";
 import CreatePassenger from "./application/usecase/CreatePassenger";
 import GetDriver from "./application/usecase/GetDriver";
 import GetPassenger from "./application/usecase/GetPassenger";
+import DriverRepositoryDataBase from "./infra/repository/DriverRepositoryDataBase";
+import PassengerRepositoryDataBase from "./infra/repository/PassengerRepositoryDataBase";
 
 const app = express();
 app.use(express.json());
@@ -21,7 +23,7 @@ app.post("/calculate_ride", async function (req, res) {
 
 app.post("/passengers", async function (req, res) {
   try {
-    const useCase = new CreatePassenger();
+    const useCase = new CreatePassenger(new PassengerRepositoryDataBase());
     const output = await useCase.execute(req.body);
     return res.json(output);
   } catch (e: any) {
@@ -31,7 +33,7 @@ app.post("/passengers", async function (req, res) {
 
 app.get("/passengers/:passengerId",async function (req, res) {
   try {
-    const useCase = new GetPassenger();
+    const useCase = new GetPassenger(new PassengerRepositoryDataBase());
     const output = await useCase.execute({ passengerId: req.params.passengerId });    
     if (!output) {
       return res.status(404).json({ error: "passenger not found" });
@@ -44,7 +46,7 @@ app.get("/passengers/:passengerId",async function (req, res) {
 
 app.post("/driver", async function (req, res) {
   try {
-    const useCase = new CreateDriver();
+    const useCase = new CreateDriver(new DriverRepositoryDataBase());
     const output = await useCase.execute(req.body);  
     return res.json(output);
   } catch (e: any) {
@@ -54,7 +56,7 @@ app.post("/driver", async function (req, res) {
 
 app.get("/driver/:driverId",async function (req, res) {
   try {
-    const usecase = new GetDriver();
+    const usecase = new GetDriver(new DriverRepositoryDataBase());
     const output = await usecase.execute({ driverId: req.params.driverId });
     if (!output) {
       return res.status(404).json({ error: "driver not found" });

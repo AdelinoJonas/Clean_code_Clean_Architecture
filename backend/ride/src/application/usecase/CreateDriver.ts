@@ -14,7 +14,7 @@ export default class CreateDriver {
       car_plate: input.car_plate
     });
     
-    return { driver_id: driverData };
+    return { driver_id: driverData};
   }
 }
 

@@ -1,20 +1,19 @@
 import { validate } from "../../CpfValidator";
-import PassengerRepository from "../../infra/repository/PassengerRepository";
-const knex = require('../../../knex.js');
+import PassengerRepository from "../repository/PassengerRepository";
 
 export default class CreatePassenger {
-  constructor () {
+  constructor ( readonly passengerRepository: PassengerRepository) {
   }
 
   async execute (input: Input): Promise<Output> {
     if (!validate(input.document)) throw new Error("Invalid cpf");
-    const passegerRepository = new PassengerRepository();
-    const passengerData = await passegerRepository.save({
+    const passengerData = await this.passengerRepository.save({
       name: input.name,
       email: input.email,
       document: input.document
     });
-    return {passenger_id: passengerData[0]};
+    const passenger_id = passengerData[0];
+    return {passenger_id: passenger_id};
   }
 }
 
@@ -25,5 +24,5 @@ type Input = {
 }
 
 type Output = {
-  passenger_id: string
+  passenger_id: any
 }

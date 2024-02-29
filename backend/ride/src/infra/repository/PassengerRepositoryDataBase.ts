@@ -1,6 +1,7 @@
+import PassengerRepository from "../../application/repository/PassengerRepository";
 const knex = require('../../../knex.js');
 
-export default class PassengerRepository {
+export default class PassengerRepositoryDataBase implements PassengerRepository {
 
   async save (passenger: any) {
     const { name, email, document } = passenger;
@@ -11,12 +12,11 @@ export default class PassengerRepository {
       });    
   }
 
-  async get (passengerId: any) {
+  async get (passengerId: string) {
     const passengerData = await knex('passenger')
     .select()
     .where('passenger_id', passengerId)
     .first();
-    console.log('getPassenger', passengerData);
     return passengerData;
   }
 }

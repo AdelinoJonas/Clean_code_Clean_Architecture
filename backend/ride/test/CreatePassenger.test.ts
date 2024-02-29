@@ -1,5 +1,6 @@
 import CreatePassenger from "../src/application/usecase/CreatePassenger";
 import GetPassenger from "../src/application/usecase/GetPassenger";
+import PassengerRepositoryDataBase from "../src/infra/repository/PassengerRepositoryDataBase";
 
 test("Deve cadastrar um passageiro", async function(){
   const input = {
@@ -7,7 +8,7 @@ test("Deve cadastrar um passageiro", async function(){
     email: "jhon.doe@gmail.com",
     document: "83432616074",
   };
-  const usecase = new CreatePassenger();
+  const usecase = new CreatePassenger(new PassengerRepositoryDataBase());
   const output = await usecase.execute(input);  
   expect(output).toBeDefined();
 });
@@ -18,9 +19,9 @@ test("Deve obter um passageiro", async function(){
     email: "jhon.does@gmail.com",
     document: "83432616074"
   };
-  const usecase = new CreatePassenger();
+  const usecase = new CreatePassenger(new PassengerRepositoryDataBase());
   const output = await usecase.execute(input); 
-  const usecase1 = new GetPassenger();
+  const usecase1 = new GetPassenger(new PassengerRepositoryDataBase());
   const output1 = await usecase1.execute({passengerId: output.passenger_id}); 
   expect(output1.name).toBe("John Does");
   expect(output1.email).toBe("jhon.does@gmail.com");
