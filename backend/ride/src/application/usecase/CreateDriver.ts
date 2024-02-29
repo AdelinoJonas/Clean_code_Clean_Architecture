@@ -1,14 +1,13 @@
 import { validate } from "../../CpfValidator";
-import DriverRepository from "../../infra/repository/DriverRepository";
+import DriverRepository from "../repository/DriverRepository";
 
 export default class CreateDriver {
-  constructor () {
+  constructor (readonly driverRepository: DriverRepository) {
   }
 
   async execute (input: Input): Promise<Output> {
     if (!validate(input.document)) throw new Error("Invalid cpf");
-    const driverRepository = new DriverRepository();
-    const driverData = await driverRepository.save({
+    const driverData = await this.driverRepository.save({
       name: input.name,
       email: input.email,
       document: input.document,

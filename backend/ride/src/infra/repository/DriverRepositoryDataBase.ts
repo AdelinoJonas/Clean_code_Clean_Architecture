@@ -1,6 +1,7 @@
+import DriverRepository from "../../application/repository/DriverRepository";
 const knex = require('../../../knex.js');
 
-export default class DriverRepository {
+export default class DriverRepositoryDataBase implements DriverRepository {
 
   async save (driver: any) {
     const { name, email, document, car_plate } = driver;
@@ -11,13 +12,11 @@ export default class DriverRepository {
         car_plate
       });
   }
-  async get (driverId: any) {
-    console.log('aaaaaaaaaaaaaaaaa', driverId);
+  async get (driverId: string) {
     const driverData = await knex('driver')
     .select()
     .where('driver_id', driverId)
     .first();
-    console.log('getDriver', driverData);
     return driverData;
   }
 }

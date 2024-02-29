@@ -1,13 +1,11 @@
-import DriverRepository from "../../infra/repository/DriverRepository";
+import DriverRepository from "../../infra/repository/DriverRepositoryDataBase";
 
 export default class GetDriver {
-  constructor () {
+  constructor (readonly driverRepository: DriverRepository) {
   }
   
   async execute (input: Input): Promise<Output> {
-    const driverRepository = new DriverRepository();
-    const driverData = await driverRepository.get(input.driverId);
-
+    const driverData = await this.driverRepository.get(input.driverId);
     return {
       driverId: driverData.driver_id,
       name: driverData.name, 
