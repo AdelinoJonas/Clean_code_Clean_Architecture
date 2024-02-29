@@ -14,9 +14,8 @@ export default class CreateDriver {
       document: input.document,
       car_plate: input.car_plate
     });
-    console.log(driverData);
     
-    return { driver_id: driverData[0] };
+    return { driver_id: driverData };
   }
 }
 

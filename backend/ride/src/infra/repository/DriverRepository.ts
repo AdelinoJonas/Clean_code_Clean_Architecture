@@ -11,4 +11,13 @@ export default class DriverRepository {
         car_plate
       });
   }
+  async get (driverId: any) {
+    console.log('aaaaaaaaaaaaaaaaa', driverId);
+    const driverData = await knex('driver')
+    .select()
+    .where('driver_id', driverId)
+    .first();
+    console.log('getDriver', driverData);
+    return driverData;
+  }
 }

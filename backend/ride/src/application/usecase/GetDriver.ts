@@ -1,19 +1,16 @@
-const knex = require('../../../knex.js');
+import DriverRepository from "../../infra/repository/DriverRepository";
 
 export default class GetDriver {
   constructor () {
   }
   
   async execute (input: Input): Promise<Output> {
-    const { driverId } = input;
-    console.log('aaaaaaaaaaaaaaaaa', driverId);
-    const driverData = await knex('driver')
-    .select()
-    .where('driver_id', driverId)
-    .first();
+    const driverRepository = new DriverRepository();
+    const driverData = await driverRepository.get(input.driverId);
+
     return {
       driverId: driverData.driver_id,
-      name: driverData.name,
+      name: driverData.name, 
       email: driverData.email,
       document:driverData.document,
       car_plate: driverData.car_plate

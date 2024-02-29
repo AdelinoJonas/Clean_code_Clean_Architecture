@@ -1,4 +1,5 @@
 import { validate } from "../../CpfValidator";
+import PassengerRepository from "../../infra/repository/PassengerRepository";
 const knex = require('../../../knex.js');
 
 export default class CreatePassenger {
@@ -6,13 +7,13 @@ export default class CreatePassenger {
   }
 
   async execute (input: Input): Promise<Output> {
-    const { name, email, document } = input;
     if (!validate(input.document)) throw new Error("Invalid cpf");
-    const passengerData = await knex('passenger').insert({
-        name,
-        email,
-        document,
-      });    
+    const passegerRepository = new PassengerRepository();
+    const passengerData = await passegerRepository.save({
+      name: input.name,
+      email: input.email,
+      document: input.document
+    });
     return {passenger_id: passengerData[0]};
   }
 }
