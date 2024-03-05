@@ -1,16 +1,25 @@
-import CreatePassenger from "../src/application/usecase/CreatePassenger";
-import GetPassenger from "../src/application/usecase/GetPassenger";
-import PassengerRepositoryDataBase from "../src/infra/repository/PassengerRepositoryDataBase";
+import CreatePassenger from "../../src/application/usecase/CreatePassenger";
+import GetPassenger from "../../src/application/usecase/GetPassenger";
+import PassengerRepositoryDataBase from "../../src/infra/repository/PassengerRepositoryDataBase";
 
 test("Deve cadastrar um passageiro", async function(){
   const input = {
-    name: "John Doe",
+    name: "Jhon Doe",
     email: "jhon.doe@gmail.com",
     document: "83432616074",
   };
   const usecase = new CreatePassenger(new PassengerRepositoryDataBase());
   const output = await usecase.execute(input);  
   expect(output).toBeDefined();
+});
+test("Não deve cadastrar um passageiro com e-mail inválido", async function(){
+  const input = {
+    name: "John Doe",
+    email: "jhon.doe@gmail",
+    document: "83432616074",
+  };
+  const usecase = new CreatePassenger(new PassengerRepositoryDataBase());
+  await expect(() => usecase.execute(input)).rejects.toThrow(new Error("Invalid email"));  
 });
 
 test("Deve obter um passageiro", async function(){

@@ -1,8 +1,8 @@
 import sinon from "sinon";
-import CreateDriver from "../src/application/usecase/CreateDriver";
-import GetDriver from "../src/application/usecase/GetDriver";
-import DriverRepository from "../src/infra/repository/DriverRepositoryDataBase";
-import DriverRepositoryDataBase from "../src/infra/repository/DriverRepositoryDataBase";
+import CreateDriver from "../../src/application/usecase/CreateDriver";
+import GetDriver from "../../src/application/usecase/GetDriver";
+import DriverRepository from "../../src/infra/repository/DriverRepositoryDataBase";
+import DriverRepositoryDataBase from "../../src/infra/repository/DriverRepositoryDataBase";
 test("Deve cadastrar o motorista", async function(){
   const input = {
     name: "John Doe",
