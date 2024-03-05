@@ -1,0 +1,3 @@
+npm i sinon
+npm i @types/sinon (necessita para o typescrypt reconhecer)
+STUB = passar por cima de um comportamento
