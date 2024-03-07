@@ -1,15 +1,17 @@
 import PassengerRepository from "../../application/repository/PassengerRepository";
+import Passenger from "../../domain/Passenger";
 const knex = require('../../../knex.js');
 
 export default class PassengerRepositoryDataBase implements PassengerRepository {
 
-  async save (passenger: any) {
+  async save (passenger: Passenger) {
     const { name, email, document } = passenger;
-    return await knex('passenger').insert({
+     const saved = await knex('passenger').insert({
         name,
-        email,
-        document,
-      });    
+        email:email.value,
+        document:document.value,
+      }); 
+      return saved[0]
   }
 
   async get (passengerId: string) {
@@ -17,6 +19,12 @@ export default class PassengerRepositoryDataBase implements PassengerRepository 
     .select()
     .where('passenger_id', passengerId)
     .first();
-    return passengerData;
+    
+    return {
+      passengerId: passengerData.passenger_id,
+      name: passengerData.name,
+      email: passengerData.email,
+      document:passengerData.document
+    };
   }
 }
