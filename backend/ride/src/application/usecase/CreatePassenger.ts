@@ -1,5 +1,3 @@
-import { validate as validateCpf } from "../../CpfValidator";
-import { validate as validateEmail } from "../../EmailValidator";
 import Passenger from "../../domain/Passenger";
 import PassengerRepository from "../repository/PassengerRepository";
 
