@@ -13,8 +13,7 @@ export default class Driver {
     this.carPlate = new CarPlate(carPlate);
   }
 
-  static create (name: string, email: string, document: string, carPlate: string) {
-   
+  static create(name: string, email: string, document: string, carPlate: string) {
     return new Driver(name, email, document, carPlate);
   }
 }

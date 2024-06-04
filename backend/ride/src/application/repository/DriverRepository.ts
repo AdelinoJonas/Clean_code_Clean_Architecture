@@ -1,4 +1,6 @@
+import Driver from "../../domain/Driver";
+
 export default interface DriverRepository {
-  save(driver: any): Promise<any>;
-  get(driverId: string): Promise<any>;
+  save(driver: Driver): Promise<any>;
+  get(driverId: string): Promise<Driver>;
 }

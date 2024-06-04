@@ -43,7 +43,7 @@ test("Deve cadastrar o motorista", async function(){
     name: "John Doe",
     email: "jhon.doe@gmail.com",
     document: "83432616074",
-    carPlate: "AAA999"
+    carPlate: "AAA9999"
   };
   const tryCreateDriver = await axios.post("http://localhost:3000/driver", input);
   const tryCreateDriverResponse = tryCreateDriver.data;
@@ -55,7 +55,7 @@ test("Não deve cadastrar um motorista com cpf invalido", async function(){
     name: "John Doe",
     email: "jhon.doe@gmail.com",
     document: "83432616076",
-    car_plate: "AAA999"
+    car_plate: "AAA9999"
   };
   const response = await axios.post("http://localhost:3000/driver", input);
   expect(response.status).toBe(422);

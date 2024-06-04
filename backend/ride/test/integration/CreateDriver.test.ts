@@ -3,16 +3,17 @@ import CreateDriver from "../../src/application/usecase/CreateDriver";
 import GetDriver from "../../src/application/usecase/GetDriver";
 import DriverRepository from "../../src/infra/repository/DriverRepositoryDataBase";
 import DriverRepositoryDataBase from "../../src/infra/repository/DriverRepositoryDataBase";
+import Driver from "../../src/domain/Driver";
 test("Deve cadastrar o motorista", async function(){
   const input = {
-    name: "John Doe",
-    email: "jhon.doe@gmail.com",
+    name: "John Does",
+    email: "jhon.does@gmail.com",
     document: "83432616074",
-    car_plate: "AAA999"
+    carPlate: "AAA9999"
   };
   const usecase = new CreateDriver(new DriverRepositoryDataBase());
   const output = await usecase.execute(input);
-  expect(output).toBeDefined();
+  expect(output.driver_id).toBeDefined();
 });
 
 test("Deve obter um motorista", async function(){
@@ -20,20 +21,14 @@ test("Deve obter um motorista", async function(){
     async save (driver: any): Promise<any>{
     },
     async get (driverId: string): Promise<any>{
-      return {
-        driver_id: "",
-        name: "John Does",
-        email: "jhon.does@gmail.com",
-        document: "83432616074",
-        car_plate: "AAA999"
-      }
+      return Driver.create("John Does","jhon.does@gmail.com","83432616074","AAA9999")
     }
-  }
+  };
     const input = {
     name: "John Does",
     email: "jhon.does@gmail.com",
     document: "83432616074",
-    car_plate: "AAA999"
+    carPlate: "AAA9999"
   };
   const usecase = new CreateDriver(driverRepository);
   const output = await usecase.execute(input);
@@ -42,5 +37,5 @@ test("Deve obter um motorista", async function(){
   expect(output1.name).toBe("John Does");
   expect(output1.email).toBe("jhon.does@gmail.com");
   expect(output1.document).toBe("83432616074");
-  expect(output1.car_plate).toBe("AAA999");
+  expect(output1.car_plate).toBe("AAA9999");
 });
