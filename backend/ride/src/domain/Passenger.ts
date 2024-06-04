@@ -11,7 +11,6 @@ export default class Passenger {
   }
 
   static create (name: string, email: string, document: string) {
-   
-    return new Passenger(name,email,document);
+    return new Passenger(name, email, document);
   }
 }

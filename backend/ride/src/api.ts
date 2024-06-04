@@ -35,6 +35,7 @@ app.get("/passengers/:passengerId",async function (req, res) {
   try {
     const useCase = new GetPassenger(new PassengerRepositoryDataBase());
     const output = await useCase.execute({ passengerId: req.params.passengerId });    
+    console.log('PASSENGER API',output);
     if (!output) {
       return res.status(404).json({ error: "passenger not found" });
     }

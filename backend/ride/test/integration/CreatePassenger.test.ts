@@ -12,6 +12,7 @@ test("Deve cadastrar um passageiro", async function(){
   const output = await usecase.execute(input);  
   expect(output).toBeDefined();
 });
+
 test("Não deve cadastrar um passageiro com e-mail inválido", async function(){
   const input = {
     name: "John Doe",
@@ -24,15 +25,16 @@ test("Não deve cadastrar um passageiro com e-mail inválido", async function(){
 
 test("Deve obter um passageiro", async function(){
   const input = {
-    name: "John Does",
-    email: "jhon.does@gmail.com",
+    name: "Jhon Doe",
+    email: "jhon.doe@gmail.com",
     document: "83432616074"
   };
   const usecase = new CreatePassenger(new PassengerRepositoryDataBase());
   const output = await usecase.execute(input); 
   const usecase1 = new GetPassenger(new PassengerRepositoryDataBase());
-  const output1 = await usecase1.execute({passengerId: output.passenger_id}); 
-  expect(output1.name).toBe("John Does");
-  expect(output1.email).toBe("jhon.does@gmail.com");
-  expect(output1.document).toBe("83432616074");
+  const output1 = await usecase1.execute({passengerId: output.passenger_id});
+  console.log("TEST",output1);
+  expect(output1.name).toBe(input.name);
+  expect(output1.email).toBe(input.email);
+  expect(output1.document).toBe(input.document);
 });
