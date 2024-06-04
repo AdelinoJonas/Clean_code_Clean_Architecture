@@ -8,6 +8,5 @@ test("Deve fazer o cálculo do preço de uma corrida durante o dia", async funct
   }
   const usecase = new CalculateRide();
   const output = await usecase.execute(input);
-
   expect(output.price).toBe(21);
 });

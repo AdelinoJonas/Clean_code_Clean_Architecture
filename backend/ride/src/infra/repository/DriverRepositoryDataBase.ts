@@ -1,5 +1,5 @@
 import DriverRepository from "../../application/repository/DriverRepository";
-const knex = require('../../../knex.js');
+import knex from '../../../knex';
 
 export default class DriverRepositoryDataBase implements DriverRepository {
 

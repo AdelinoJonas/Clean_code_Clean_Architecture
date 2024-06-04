@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     container_name: mysql
     environment:
-      MYSQL_DATABASE: 'appbrunanail_db'
+      MYSQL_DATABASE: 'my_uber_db'
       MYSQL_USER: 'jonas'
       MYSQL_PASSWORD: '123456'
       MYSQL_ROOT_PASSWORD: '123456'

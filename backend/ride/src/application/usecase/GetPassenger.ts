@@ -1,7 +1,5 @@
 import PassengerRepository from "../repository/PassengerRepository";
 
-const knex = require('../../../knex.js');
-
 export default class GetPassenger {
   constructor (readonly passengerRepository: PassengerRepository) {
   }

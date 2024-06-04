@@ -1,6 +1,6 @@
 import PassengerRepository from "../../application/repository/PassengerRepository";
 import Passenger from "../../domain/Passenger";
-const knex = require('../../../knex.js');
+import knex from '../../../knex';
 
 export default class PassengerRepositoryDataBase implements PassengerRepository {
 

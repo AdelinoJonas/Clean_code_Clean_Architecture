@@ -1,6 +1,6 @@
 import Passenger from "../../domain/Passenger";
 
 export default interface PassengerRepository {
-  save(passenger: Passenger): Promise<void>;
+  save(passenger: Passenger): Promise<any>;
   get(passengerId: string): Promise<any>;
 }
