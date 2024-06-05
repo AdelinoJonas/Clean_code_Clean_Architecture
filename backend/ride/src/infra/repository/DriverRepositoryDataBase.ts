@@ -21,6 +21,6 @@ export default class DriverRepositoryDataBase implements DriverRepository {
     .select()
     .where('driver_id', driverId)
     .first();
-    return driverData;
+    return new Driver(driverData.name, driverData.email, driverData.document, driverData.carPlate);
   }
 }

@@ -6,8 +6,6 @@ export default class GetPassenger {
   
   async execute (input: Input): Promise<Output> {
     const passenger = await this.passengerRepository.get(input.passengerId);
-    console.log("GET PASS",passenger);
-    
     return {
       name: passenger.name,
       email: passenger.email.value,

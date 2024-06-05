@@ -19,8 +19,6 @@ export default class PassengerRepositoryDataBase implements PassengerRepository 
     .select()
     .where('passenger_id', passengerId)
     .first();
-    console.log('PASSENGER',passengerData);
-    
     return new Passenger(passengerData.name, passengerData.email, passengerData.document);
   }
 }
