@@ -1,4 +1,4 @@
-import { validate } from "../../CpfValidator";
+
 import Driver from "../../domain/Driver";
 import DriverRepository from "../repository/DriverRepository";
 
@@ -7,7 +7,6 @@ export default class CreateDriver {
   }
 
   async execute (input: Input): Promise<Output> {
-    if (!validate(input.document)) throw new Error("Invalid cpf");
     const driver = Driver.create(input.name, input.email, input.document, input.carPlate);
     const driverData = await this.driverRepository.save(driver);
     return { driver_id: driverData};

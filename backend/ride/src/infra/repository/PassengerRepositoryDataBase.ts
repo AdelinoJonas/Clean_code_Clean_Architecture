@@ -21,11 +21,6 @@ export default class PassengerRepositoryDataBase implements PassengerRepository 
     .first();
     console.log('PASSENGER',passengerData);
     
-    return {
-      passengerId: passengerData.passenger_id,
-      name: passengerData.name,
-      email: passengerData.email,
-      document:passengerData.document
-    };
+    return new Passenger(passengerData.name, passengerData.email, passengerData.document);
   }
 }

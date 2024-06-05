@@ -1,4 +1,3 @@
-import { validate } from "../../CpfValidator";
 import Passenger from "../../domain/Passenger";
 import PassengerRepository from "../repository/PassengerRepository";
 
