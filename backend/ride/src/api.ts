@@ -8,6 +8,7 @@ import DriverRepositoryDataBase from "./infra/repository/DriverRepositoryDataBas
 import PassengerRepositoryDataBase from "./infra/repository/PassengerRepositoryDataBase";
 import MainController from "./infra/http/MainController";
 import ExpressAdapter from "./infra/http/ExpressAdapter";
+import HapiAdapter from "./infra/http/HapiAdapter";
 
 const calculateRide = new CalculateRide();
 const passengerRepository = new PassengerRepositoryDataBase();
@@ -16,6 +17,7 @@ const createPassenger = new CreatePassenger(passengerRepository);
 const getPassenger = new GetPassenger(passengerRepository);
 const createDriver = new CreateDriver(driverRepository);
 const getDriver = new GetDriver(driverRepository);
-const httpServer = new ExpressAdapter();
+// const httpServer = new ExpressAdapter();
+const httpServer = new HapiAdapter();
 new MainController(httpServer, calculateRide, createPassenger, getPassenger, createDriver, getDriver,)
 httpServer.listen(3000);
