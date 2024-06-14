@@ -7,7 +7,7 @@
     "migration:create": "knex migrate:make",
     "migration:revert": "knex migrate:rollback",
     "migration:run": "knex migrate:latest",
-    "dev": "npx nodemon src/api.ts",
+    "dev": "npx nodemon src/main_api.ts",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
