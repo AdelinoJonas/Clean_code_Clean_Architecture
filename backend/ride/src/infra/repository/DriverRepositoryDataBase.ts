@@ -1,13 +1,8 @@
 import DriverRepository from "../../application/repository/DriverRepository";
 import knex from '../../../knex';
 import Driver from "../../domain/Driver";
-import DatabaseConnection from "../database/DatabaseConnection";
 
 export default class DriverRepositoryDataBase implements DriverRepository {
-
-  constructor (readonly connection: DatabaseConnection){
-    
-  }
 
   async save (driver: Driver) {
     const { name, email, document, carPlate } = driver;

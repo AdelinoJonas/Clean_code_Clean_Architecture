@@ -1,5 +1,4 @@
-//@ts-nocheck
-import express from "express";
+
 import CalculateRide from "./application/usecase/CalculateRide";
 import CreateDriver from "./application/usecase/CreateDriver";
 import CreatePassenger from "./application/usecase/CreatePassenger";
@@ -7,66 +6,16 @@ import GetDriver from "./application/usecase/GetDriver";
 import GetPassenger from "./application/usecase/GetPassenger";
 import DriverRepositoryDataBase from "./infra/repository/DriverRepositoryDataBase";
 import PassengerRepositoryDataBase from "./infra/repository/PassengerRepositoryDataBase";
+import MainController from "./infra/http/MainController";
+import ExpressAdapter from "./infra/http/ExpressAdapter";
 
-const app = express();
-app.use(express.json());
-
-app.post("/calculate_ride", async function (req, res) {
-  try {
-    const useCase = new CalculateRide();
-    const output = await useCase.execute(req.body);
-    return res.json(output);
-  } catch (e: any) {
-    return res.status(422).send(e.message);
-  }
-});
-
-app.post("/passengers", async function (req, res) {
-  try {
-    const useCase = new CreatePassenger(new PassengerRepositoryDataBase());
-    const output = await useCase.execute(req.body);
-    return res.json(output);
-  } catch (e: any) {
-    return res.status(422).send(e.message);
-  }
-});
-
-app.get("/passengers/:passengerId",async function (req, res) {
-  try {
-    const useCase = new GetPassenger(new PassengerRepositoryDataBase());
-    const output = await useCase.execute({ passengerId: req.params.passengerId });    
-    if (!output) {
-      return res.status(404).json({ error: "passenger not found" });
-    }
-    return res.json(output);
-  } catch (e: any) {
-    return res.status(422).send(e.message);
-  }
-});
-
-app.post("/driver", async function (req, res) {
-  try {
-    const useCase = new CreateDriver(new DriverRepositoryDataBase());
-    const output = await useCase.execute(req.body);  
-    return res.json(output);
-  } catch (e: any) {
-    return res.status(422).send(e.message);
-  }
-});
-
-app.get("/driver/:driverId",async function (req, res) {
-  try {
-    const usecase = new GetDriver(new DriverRepositoryDataBase());
-    const output = await usecase.execute({ driverId: req.params.driverId });
-    if (!output) {
-      return res.status(404).json({ error: "driver not found" });
-    }
-    return res.json(output);
-  } catch (e: any) {
-    return res.status(422).send(e.message);
-  }
-});
-
-app.listen(3000, () => {
-  console.log(`Servidor ouvindo na porta http://localhost:3000/`);
-});
+const calculateRide = new CalculateRide();
+const passengerRepository = new PassengerRepositoryDataBase();
+const driverRepository = new DriverRepositoryDataBase();
+const createPassenger = new CreatePassenger(passengerRepository);
+const getPassenger = new GetPassenger(passengerRepository);
+const createDriver = new CreateDriver(driverRepository);
+const getDriver = new GetDriver(driverRepository);
+const httpServer = new ExpressAdapter();
+new MainController(httpServer, calculateRide, createPassenger, getPassenger, createDriver, getDriver,)
+httpServer.listen(3000);
