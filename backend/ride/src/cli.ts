@@ -7,10 +7,9 @@ process.stdin.on("data", async function(chunk){
     if (command.startsWith("create-passenger")) {
       const [ name, email, document ] = command.replace("create-passenger","").split("");
       const usecase = new CreatePassenger(new PassengerRepositoryDataBase());
-      await usecase.execute({name, email, document});
+      const output = await usecase.execute({name, email, document});
     }
   } catch (e:any) {
     console.log(e.message);
   }
-  
-})
+});
