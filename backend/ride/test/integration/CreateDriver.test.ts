@@ -3,7 +3,7 @@ import CreateDriver from "../../src/application/usecase/CreateDriver";
 import GetDriver from "../../src/application/usecase/GetDriver";
 import DriverRepository from "../../src/infra/repository/DriverRepositoryDataBase";
 import DriverRepositoryDataBase from "../../src/infra/repository/DriverRepositoryDataBase";
-import Driver from "../../src/domain/Driver";
+import Driver from "../../src/domain/driver/Driver";
 
 test("Deve cadastrar o motorista", async function(){
   const input = {

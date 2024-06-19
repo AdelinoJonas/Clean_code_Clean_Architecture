@@ -1,6 +1,6 @@
-import CarPlate from "./CarPlate";
-import Cpf from "./Cpf";
-import Email from "./Email";
+import Cpf from "../person/Cpf";
+import Email from "../person/Email";
+import CarPlate from "../driver/CarPlate";
 
 export default class Driver {
   document: Cpf;

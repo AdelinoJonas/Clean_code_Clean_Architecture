@@ -1,6 +1,6 @@
 import DriverRepository from "../../application/repository/DriverRepository";
 import knex from '../../../knex';
-import Driver from "../../domain/Driver";
+import Driver from "../../domain/driver/Driver";
 
 export default class DriverRepositoryDataBase implements DriverRepository {
 

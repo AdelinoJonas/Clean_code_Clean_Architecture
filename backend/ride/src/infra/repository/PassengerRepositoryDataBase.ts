@@ -1,6 +1,6 @@
-import PassengerRepository from "../../application/repository/PassengerRepository";
-import Passenger from "../../domain/Passenger";
 import knex from '../../../knex';
+import PassengerRepository from "../../application/repository/PassengerRepository";
+import Passenger from "../../domain/passenger/Passenger";
 
 export default class PassengerRepositoryDataBase implements PassengerRepository {
 
