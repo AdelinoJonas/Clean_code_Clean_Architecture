@@ -1,3 +1,4 @@
+import Coord from "../distance/Coord";
 import DistanceCalculator from "../distance/DistanceCalculator";
 import FareCalculatorHandler from "../fare/chain_of_responsability/FareCalculatorHandler";
 import NormalFareCalculatorHandler from "../fare/chain_of_responsability/NormalFareCalculatorHandler";
@@ -11,21 +12,27 @@ export default class Ride {
   positions: Position[];
   MIN_PRICE = 10;
   fareCalculator: FareCalculatorHandler;
+  rideId: string | undefined;
 
-  constructor () {
+  constructor (
+    readonly passengerId: string,
+    readonly from: Coord,
+    readonly to: Coord,
+    readonly status: string
+  ) {
     this.positions = [];
-    const overnightSundayFareCalculator = new OvernightSundayFareCalculatorHandler()
-    const sundayFareCalculator = new SundayFareCalculatorHandler(overnightSundayFareCalculator)
+    const overnightSundayFareCalculator = new OvernightSundayFareCalculatorHandler();
+    const sundayFareCalculator = new SundayFareCalculatorHandler(overnightSundayFareCalculator);
     const overnightFareCalculator = new OvernightFareCalculatorHandler(sundayFareCalculator);
     this.fareCalculator = new NormalFareCalculatorHandler(overnightFareCalculator);
   }
 
   addPosition(lat: number, long: number, date: Date) {
     this.positions.push(new Position(lat, long, date));
-  };
+  }
 
   calculate () {
-    let price = 0
+    let price = 0;
     for (const [index, position] of this.positions.entries()) {
       const nextPosition = this.positions[index + 1];
       if (!nextPosition) break;
@@ -34,5 +41,10 @@ export default class Ride {
       price += this.fareCalculator.handle(segment);
     }
     return (price < this.MIN_PRICE) ? this.MIN_PRICE : price;
+  }
+
+  static create(passengerId: string, from: Coord, to: Coord): Ride {
+    const status = "requested";
+    return new Ride(passengerId, from, to, status);
   }
 }
