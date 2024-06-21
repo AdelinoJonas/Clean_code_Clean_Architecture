@@ -9,10 +9,10 @@ export async function up(): Promise<void> {
     table.string("to_lat", 20).notNullable();
     table.string("to_long", 20).notNullable();
     table.string("status", 20).notNullable();
-    table.timestamp("request_date").defaultTo(knex.fn.now());
-    table.timestamp("accept_date").defaultTo(knex.fn.now());
-    table.timestamp("start_date").defaultTo(knex.fn.now());
-    table.timestamp("end_date").defaultTo(knex.fn.now());
+    table.timestamp("request_date");
+    table.timestamp("accept_date");
+    table.timestamp("start_date");
+    table.timestamp("end_date");
     table.decimal("price", 10, 2).notNullable();
   });
 }

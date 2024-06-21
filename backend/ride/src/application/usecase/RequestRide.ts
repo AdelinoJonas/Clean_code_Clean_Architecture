@@ -14,14 +14,10 @@ export default class RequestRide {
 
     try {
       const savedRide = await this.rideRepository.save(ride);
-      
       if (!savedRide || !savedRide.rideId) {
         throw new Error('Ride not saved correctly');
       }
-
-      console.log('Saved ride:', savedRide);
-
-      return { rideId: savedRide.rideId.toString() }; // Assuming rideId is a number, convert to string if necessary
+      return { rideId: savedRide.rideId.toString() };
     } catch (error) {
       console.error("Erro ao salvar o ride:", error);
       throw error;

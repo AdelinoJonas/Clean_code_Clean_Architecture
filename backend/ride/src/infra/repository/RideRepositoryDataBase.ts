@@ -13,6 +13,7 @@ export default class RideRepositoryDatabase implements RideRepository {
       to_lat: ride.to.lat,
       to_long: ride.to.long,
       status: ride.status,
+      request_date: ride.request_date,
       price: ride.calculate()
     };
     const [rideId] = await knex('ride').insert(rideData, 'ride_id');

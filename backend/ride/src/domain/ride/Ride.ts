@@ -18,7 +18,8 @@ export default class Ride {
     readonly passengerId: string,
     readonly from: Coord,
     readonly to: Coord,
-    readonly status: string
+    readonly status: string,
+    readonly request_date: Date,
   ) {
     this.positions = [];
     const overnightSundayFareCalculator = new OvernightSundayFareCalculatorHandler();
@@ -43,8 +44,8 @@ export default class Ride {
     return (price < this.MIN_PRICE) ? this.MIN_PRICE : price;
   }
 
-  static create(passengerId: string, from: Coord, to: Coord): Ride {
+  static create(passengerId: string, from: Coord, to: Coord, request_date: Date = new Date()): Ride {
     const status = "requested";
-    return new Ride(passengerId, from, to, status);
+    return new Ride(passengerId, from, to, status, request_date);
   }
 }
