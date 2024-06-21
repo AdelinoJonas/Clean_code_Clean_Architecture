@@ -9,7 +9,8 @@ export default class RequestRide {
     const ride = Ride.create(
       input.passengerId,
       new Coord(input.from.lat, input.from.long),
-      new Coord(input.to.lat, input.to.long)
+      new Coord(input.to.lat, input.to.long), 
+      input.date
     );
 
     try {
@@ -17,7 +18,7 @@ export default class RequestRide {
       if (!savedRide || !savedRide.rideId) {
         throw new Error('Ride not saved correctly');
       }
-      return { rideId: savedRide.rideId.toString() };
+      return { rideId: savedRide.rideId.toString(), status: savedRide.status };
     } catch (error) {
       console.error("Erro ao salvar o ride:", error);
       throw error;
@@ -34,4 +35,5 @@ type Input = {
 
 type Output = {
   rideId: string;
+  status: string;
 };

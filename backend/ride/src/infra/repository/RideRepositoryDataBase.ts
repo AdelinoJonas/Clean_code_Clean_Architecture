@@ -1,5 +1,6 @@
 import knex from '../../../knex';
 import RideRepository from '../../application/repository/RideRepository';
+import Coord from '../../domain/distance/Coord';
 import Ride from '../../domain/ride/Ride';
 
 export default class RideRepositoryDatabase implements RideRepository {
@@ -22,6 +23,18 @@ export default class RideRepositoryDatabase implements RideRepository {
   }
 
   async get(rideId: string): Promise<Ride> {
-    throw new Error('Method not implemented.');
+    const rideData = await knex('ride').where({ ride_id: rideId }).first();
+    if (!rideData) {
+      throw new Error('Ride not found');
+    }
+    const ride = new Ride(
+      rideData.passenger_id,
+      new Coord(rideData.from_lat, rideData.from_long),
+      new Coord(rideData.to_lat, rideData.to_long),
+      rideData.status,
+      rideData.request_date,
+      rideData.ride_id
+    );   
+    return ride;
   }
 }

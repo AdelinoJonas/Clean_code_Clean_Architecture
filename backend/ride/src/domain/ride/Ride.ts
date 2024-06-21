@@ -20,12 +20,14 @@ export default class Ride {
     readonly to: Coord,
     readonly status: string,
     readonly request_date: Date,
+    rideId?: string
   ) {
     this.positions = [];
     const overnightSundayFareCalculator = new OvernightSundayFareCalculatorHandler();
     const sundayFareCalculator = new SundayFareCalculatorHandler(overnightSundayFareCalculator);
     const overnightFareCalculator = new OvernightFareCalculatorHandler(sundayFareCalculator);
     this.fareCalculator = new NormalFareCalculatorHandler(overnightFareCalculator);
+    this.rideId = rideId;
   }
 
   addPosition(lat: number, long: number, date: Date) {
