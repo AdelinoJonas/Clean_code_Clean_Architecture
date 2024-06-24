@@ -42,5 +42,15 @@ test("Deve fazer o cálculo do preço de uma corrida durante o dia com o preço 
   ride.addPosition(-27.579020277800876, -48.522234807851476, new Date("2021-03-07T23:00:00"));
   expect(ride.calculate()).toBe(10);
 });
+test("Deve solicitar uma corrida", function(){
+  const ride = Ride.create("", new Coord(0,0), new Coord(0,0))
+  expect(ride.status).toBe("requested");
+});
+
+test("Deve aceitar uma corrida", function(){
+  const ride = Ride.create("", new Coord(0,0), new Coord(0,0));
+  ride.accept("", new Date("2024-03-01T10:10:00"));
+  expect(ride.status).toBe("accepted");
+});
 
 

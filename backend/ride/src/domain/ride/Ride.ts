@@ -13,12 +13,14 @@ export default class Ride {
   MIN_PRICE = 10;
   fareCalculator: FareCalculatorHandler;
   rideId: string | undefined;
+  driverId?: string;
+  acceptDate?: Date;
 
   constructor (
     readonly passengerId: string,
     readonly from: Coord,
     readonly to: Coord,
-    readonly status: string,
+    public status: string,
     readonly request_date: Date,
     rideId?: string
   ) {
@@ -44,6 +46,12 @@ export default class Ride {
       price += this.fareCalculator.handle(segment);
     }
     return (price < this.MIN_PRICE) ? this.MIN_PRICE : price;
+  }
+
+  accept(driverId: string, date: Date){
+    this.driverId = driverId;
+    this.status = "accepted";
+    this.acceptDate = date;
   }
 
   static create(passengerId: string, from: Coord, to: Coord, request_date: Date = new Date()): Ride {

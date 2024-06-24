@@ -1,6 +1,6 @@
 import CreatePassenger from "../../src/application/usecase/CreatePassenger";
+import GetRide from "../../src/application/usecase/GetRide";
 import RequestRide from "../../src/application/usecase/RequestRide";
-import GetRide from "../../src/application/usecase/getRide";
 import PassengerRepositoryDataBase from "../../src/infra/repository/PassengerRepositoryDataBase";
 import RideRepositoryDatabase from "../../src/infra/repository/RideRepositoryDataBase";
 

@@ -9,8 +9,10 @@ export default class GetRide {
       const rideId = ride.rideId ? ride.rideId.toString() : '';
       return {
         rideId: rideId,
+        driverId: ride.driverId,
         status: ride.status,
-        requestDate: ride.request_date
+        requestDate: ride.request_date,
+        acceptDate: ride.acceptDate
       };
     } catch (error) {
       throw error;
@@ -24,6 +26,8 @@ type Input = {
 
 type Output = {
   rideId: string,
+  driverId?: string,
   status: string,
-  requestDate: Date
+  requestDate: Date,
+  acceptDate?: Date
 }
