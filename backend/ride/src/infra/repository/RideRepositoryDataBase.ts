@@ -41,6 +41,8 @@ export default class RideRepositoryDatabase implements RideRepository {
     );   
     ride.driverId = rideData.driver_id;
     ride.acceptDate = rideData.accept_date;
+    ride.startDate = rideData.start_date;
+    ride.finishDate = rideData.end_date;
     return ride;
   }
   async update(ride: Ride): Promise<void> {
@@ -50,6 +52,8 @@ export default class RideRepositoryDatabase implements RideRepository {
       driver_id: ride.driverId,
       status: ride.status,
       accept_date: ride.acceptDate,
+      start_date: ride.startDate,
+      end_date: ride.finishDate,
       ride_id: ride.rideId,
     });
   }

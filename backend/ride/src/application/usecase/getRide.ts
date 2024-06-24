@@ -12,7 +12,9 @@ export default class GetRide {
         driverId: ride.driverId,
         status: ride.status,
         requestDate: ride.request_date,
-        acceptDate: ride.acceptDate
+        acceptDate: ride.acceptDate,
+        startDate: ride.startDate,
+        finishDate: ride.finishDate,
       };
     } catch (error) {
       throw error;
@@ -29,5 +31,7 @@ type Output = {
   driverId?: string,
   status: string,
   requestDate: Date,
-  acceptDate?: Date
+  acceptDate?: Date,
+  startDate?: Date,
+  finishDate?: Date,
 }

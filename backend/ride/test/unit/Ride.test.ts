@@ -53,4 +53,26 @@ test("Deve aceitar uma corrida", function(){
   expect(ride.status).toBe("accepted");
 });
 
+test("Deve iniciar uma corrida", function(){
+  const ride = Ride.create("", new Coord(0,0), new Coord(0,0));
+  ride.accept("", new Date("2024-03-01T10:10:00"));
+  ride.start(new Date("2024-03-01T10:20:00"));
+  expect(ride.status).toBe("in-progress");
+});
+test("Deve finalizar uma corrida", function(){
+  const ride = Ride.create("", new Coord(0,0), new Coord(0,0));
+  ride.accept("", new Date("2024-03-01T10:10:00"));
+  ride.start(new Date("2024-03-01T10:20:00"));
+  ride.finish(new Date("2024-03-01T10:50:00"));
+  expect(ride.status).toBe("finished");
+});
+test("Não deve iniciar uma corrida se não tiver sido aceita", function(){
+  const ride = Ride.create("", new Coord(0,0), new Coord(0,0));
+  expect(()=> ride.start(new Date("2024-03-01T10:20:00"))).toThrow("Invalid status");
+});
+test("Não deve finalizar uma corrida se não tiver sido iniciada", function(){
+  const ride = Ride.create("", new Coord(0,0), new Coord(0,0));
+  expect(()=> ride.finish(new Date("2024-03-01T10:50:00"))).toThrow("Invalid status");
+});
+
 
