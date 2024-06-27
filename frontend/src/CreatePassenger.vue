@@ -16,7 +16,6 @@ import axios from 'axios';
     const response = await axios.post("http://localhost:3000/passengers", input);
     const output = response.data.passenger_id;
     passengerId.value = output;
-    console.log(passengerId.value);
   }
 </script>
 

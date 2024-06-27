@@ -15,10 +15,9 @@ import axios from 'axios';
       document: document.value,
       carPlate: carPlate.value
     };
-    const response = await axios.post("http://localhost:3000/drivers", input);
-    const output = response.data.driver_id;
+    const response = await axios.post("http://localhost:3000/driver", input);
+    const output = response.data.driver_id[0];
     driverId.value = output;
-    console.log(driverId.value);
   }
 </script>
 
@@ -41,7 +40,7 @@ import axios from 'axios';
       <input id="carPlate" class="driver-carPlate" v-model="carPlate" placeholder="Digite seu CPF"/>
     </div>
     <button class="create-button" @click="createDriver()">Create Driver</button>
-    <div class="id">{{driverId}}</div>
+    <div class="id">{{driverId.value}}</div>
   </form>
 </template>
 
