@@ -4,8 +4,10 @@
 </script>
 
 <template>
-  <CreatePassenger/>
-  <CreateDriver/>
+  <div class="create">
+    <CreatePassenger/>
+    <CreateDriver/>
+  </div>
 </template>
 
 <style scoped>
