@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import AppVue from "../src/App.vue";
+import CreatePassenger from "../src/CreatePassenger.vue";
 
 test("Cadastrar um passageiro", async function (){
   function sleep (time: number) {
@@ -9,14 +9,14 @@ test("Cadastrar um passageiro", async function (){
       }, time);
     })
   };
-  const wrapper = mount(AppVue, {});
+  const wrapper = mount(CreatePassenger, {});
     await wrapper.get(".passenger-name").setValue("Ana");
     await wrapper.get(".passenger-email").setValue("Ana@gmail.com");
     await wrapper.get(".passenger-document").setValue("83432616074");
-    await wrapper.get(".create-passenger-button").trigger("click");
+    await wrapper.get(".create-button").trigger("click");
     await sleep(200);
   let passengerId = "0";
-  if(wrapper.get(".passenger-id").text() > "0") {
+  if(wrapper.get(".id").text() > "0") {
     return;
   } 
   expect(passengerId).toBeDefined();

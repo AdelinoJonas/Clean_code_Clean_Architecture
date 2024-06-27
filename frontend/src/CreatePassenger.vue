@@ -21,7 +21,7 @@ import axios from 'axios';
 </script>
 
 <template>
-  <form id="createPassenger" class="passenger-register">
+  <form id="createPassenger" class="register">
     <div class="field">
       <label for="name" class="label">Name:</label>
       <input id="name" class="passenger-name" v-model="name" placeholder="Digite seu nome"/>
@@ -32,10 +32,10 @@ import axios from 'axios';
     </div>
     <div class="field">
       <label for="document" class="label">Document:</label>
-      <input id="document" class="passenger-document" v-model="document" placeholder="Digite seu CPF"/>
+      <input id="document" class="passenger-document" v-model="document" placeholder="Digite a placa do carro"/>
     </div>
-    <button class="create-passenger-button" @click="createPassenger()">Create Passenger</button>
-    <div class="passenger-id">{{passengerId}}</div>
+    <button class="create-button" @click="createPassenger()">Create Passenger</button>
+    <div class="id">{{passengerId}}</div>
   </form>
 </template>
 
