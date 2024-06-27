@@ -10,13 +10,13 @@ test("Cadastrar um motorista", async function (){
     })
   };
   const wrapper = mount(CreateDriver, {});
-    await wrapper.get(".driver-name").setValue("Ana");
-    await wrapper.get(".driver-email").setValue("Ana@gmail.com");
-    await wrapper.get(".driver-document").setValue("83432616074");
+    await wrapper.get(".driver-name").setValue("JOANA");
+    await wrapper.get(".driver-email").setValue("JOANA@gmail.com");
+    await wrapper.get(".driver-document").setValue("07382201910");
     await wrapper.get(".driver-carPlate").setValue("AAA9999");
     await wrapper.get(".create-button").trigger("click");
     await sleep(500);
-    await sleep(500);
+
   let driverId = "";
   if(wrapper.get(".id").text() > "0") {
     return;

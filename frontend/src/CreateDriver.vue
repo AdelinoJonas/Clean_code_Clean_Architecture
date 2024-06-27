@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import axios from 'axios';
-
   const name = ref("");
   const email = ref("");
   const document = ref("");
@@ -40,7 +39,7 @@ import axios from 'axios';
       <input id="carPlate" class="driver-carPlate" v-model="carPlate" placeholder="Digite seu CPF"/>
     </div>
     <button class="create-button" @click="createDriver()">Create Driver</button>
-    <div class="id">{{driverId.value}}</div>
+    <div class="id">{{driverId}}</div>
   </form>
 </template>
 
