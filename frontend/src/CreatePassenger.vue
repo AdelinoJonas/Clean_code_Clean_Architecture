@@ -90,5 +90,6 @@ async function createPassenger() {
   .id {
     margin-top: 10px;
     font-size: 18px;
+    text-align: center;
   }
 </style>
