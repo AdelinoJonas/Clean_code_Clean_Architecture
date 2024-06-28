@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import axios from 'axios';
+import { inject, ref } from 'vue';
+import PassengerGateway from './infra/gateway/PassengerGateway';
 
 const name = ref("");
 const email = ref("");
 const document = ref("");
 const passengerId = ref("");
 
+const passengerGateway = inject("passengerGateway") as PassengerGateway;
 async function createPassenger() {
   const input = {
     name: name.value,
@@ -14,8 +15,8 @@ async function createPassenger() {
     document: document.value
   };
   try {
-    const response = await axios.post("http://localhost:3000/passengers", input);
-    passengerId.value = response.data.passenger_id;
+    const output = await passengerGateway.save(input);
+    passengerId.value = output.data.passenger_id;
   } catch (error) {
     console.error("Erro ao cadastrar passageiro:", error);
   }

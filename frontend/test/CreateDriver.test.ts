@@ -1,5 +1,6 @@
 import { mount } from "@vue/test-utils";
 import CreateDriver from "../src/CreateDriver.vue";
+import DriverGateway from "../src/infra/gateway/DriverGateway";
 
 test("Cadastrar um motorista", async function (){
   function sleep (time: number) {
@@ -9,7 +10,18 @@ test("Cadastrar um motorista", async function (){
       }, time);
     })
   };
-  const wrapper = mount(CreateDriver, {});
+  const driverGateway: DriverGateway ={
+      async save(driver:any): Promise<any>{
+        return {driverId: "9"};
+      }
+  };
+  const wrapper = mount(CreateDriver, {
+    global: {
+      provide: {
+        driverGateway
+      }
+    }
+  });
     await wrapper.get(".driver-name").setValue("JOANA");
     await wrapper.get(".driver-email").setValue("JOANA@gmail.com");
     await wrapper.get(".driver-document").setValue("07382201910");

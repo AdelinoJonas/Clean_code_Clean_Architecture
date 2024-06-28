@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import axios from 'axios';
+import { inject, ref } from 'vue';
+import DriverGateway from './infra/gateway/DriverGateway';
 
 const name = ref("");
 const email = ref("");
 const document = ref("");
 const carPlate = ref("");
 const driverId = ref("");
+
+const driverGateway = inject("driverGateway") as DriverGateway;
 
 async function createDriver() {
   const input = {
@@ -16,8 +18,8 @@ async function createDriver() {
     carPlate: carPlate.value
   };
   try {
-    const response = await axios.post("http://localhost:3000/driver", input);
-    driverId.value = response.data.driver_id[0];
+    const output = await driverGateway.save(input);
+    driverId.value = output.data.driver_id[0];
   } catch (error) {
     console.error("Erro ao cadastrar motorista", error);
   }
