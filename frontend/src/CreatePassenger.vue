@@ -1,44 +1,35 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue';
-import PassengerGateway from './infra/gateway/PassengerGateway';
+	import { inject, ref } from 'vue';
+	import PassengerGateway from './infra/gateway/PassengerGateway';
+	import Passenger from './domain/Passenger';
 
-const name = ref("");
-const email = ref("");
-const document = ref("");
-const passengerId = ref("");
+	const passenger = ref(new Passenger());
+	const passengerId = ref("");
 
-const passengerGateway = inject("passengerGateway") as PassengerGateway;
-async function createPassenger() {
-  const input = {
-    name: name.value,
-    email: email.value,
-    document: document.value
-  };
-  try {
-    const output = await passengerGateway.save(input);
-    passengerId.value = output.data.passenger_id;
-  } catch (error) {
-    console.error("Erro ao cadastrar passageiro:", error);
-  }
-}
+	const passengerGateway = inject("passengerGateway") as PassengerGateway;
+
+	async function createPassenger () {
+    let createdPassengerId = await passengerGateway.save(passenger.value);
+    passengerId.value = createdPassengerId;
+	}
 </script>
 
 <template>
-  <form id="createPassenger" class="register">
+<form id="createPassenger" class="register">
     <div class="field">
       <label for="name" class="label">Name:</label>
-      <input id="name" class="passenger-name" v-model="name" placeholder="Digite seu nome"/>
+      <input id="name" class="passenger-name" v-model="passenger.name" placeholder="Digite seu nome"/>
     </div>
     <div class="field">
       <label for="email" class="label">Email:</label>
-      <input id="email" class="passenger-email" v-model="email" placeholder="Digite seu e-mail"/>
+      <input id="email" class="passenger-email" v-model="passenger.email" placeholder="Digite seu e-mail"/>
     </div>
     <div class="field">
       <label for="document" class="label">Document:</label>
-      <input id="document" class="passenger-document" v-model="document" placeholder="Digite o documento"/>
+      <input id="document" class="passenger-document" v-model="passenger.document" placeholder="Digite o documento"/>
     </div>
     <button class="create-button" @click.prevent="createPassenger">Cadastrar Passageiro</button>
-    <div class="id">ID do Passageiro: {{ passengerId }}</div>
+    <div class="id">{{ passengerId }}</div>
   </form>
 </template>
 
