@@ -29,10 +29,5 @@ test("Deve criar um passageiro", async function () {
 	await wrapper.get(".passenger-document").setValue("83432616074");
 	await wrapper.get(".create-button").trigger("click");
 	await sleep(200);
-	const request = wrapper.get(".id").text();
-	let passengerId = "";
-  if(request > "") {
-    passengerId = request
-  } 
-  expect(passengerId).toBeDefined();
+  expect(wrapper.get(".id").text()).toBeDefined();
 });

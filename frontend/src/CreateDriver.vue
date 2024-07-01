@@ -19,7 +19,7 @@ async function createDriver() {
   };
   try {
     const output = await driverGateway.save(input);
-    driverId.value = output.data.driver_id[0];
+    driverId.value = output;
   } catch (error) {
     console.error("Erro ao cadastrar motorista", error);
   }
@@ -45,7 +45,7 @@ async function createDriver() {
       <input id="carPlate" class="driver-carPlate" v-model="carPlate" placeholder="Digite a placa do carro"/>
     </div>
     <button type="button" class="create-button" @click="createDriver()">Create Driver</button>
-    <div class="id">ID do Motorista: {{ driverId }}</div>
+    <div class="id">{{ driverId }}</div>
   </form>
 </template>
 

@@ -31,11 +31,5 @@ test("Deve criar um motorista", async function () {
   await wrapper.get(".driver-carPlate").setValue("AAA9999");
   await wrapper.get(".create-button").trigger("click");
   await sleep(500);
-
-let driverId = "";
-if(wrapper.get(".id").text() > "0") {
-  return;
-}  
-	console.log(wrapper.get(".id").text());
-  expect(driverId).toBeDefined();
+  expect(wrapper.get(".id").text()).toBeDefined();
 });
