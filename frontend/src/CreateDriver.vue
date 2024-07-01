@@ -1,28 +1,16 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue';
 import DriverGateway from './infra/gateway/DriverGateway';
+import Driver from './domain/Driver';
 
-const name = ref("");
-const email = ref("");
-const document = ref("");
-const carPlate = ref("");
+const driver = ref(new Driver("","","","",""));
 const driverId = ref("");
 
 const driverGateway = inject("driverGateway") as DriverGateway;
 
 async function createDriver() {
-  const input = {
-    name: name.value,
-    email: email.value,
-    document: document.value,
-    carPlate: carPlate.value
-  };
-  try {
-    const output = await driverGateway.save(input);
-    driverId.value = output;
-  } catch (error) {
-    console.error("Erro ao cadastrar motorista", error);
-  }
+    const createDriverId = await driverGateway.save(driver.value);
+    driverId.value = createDriverId;
 }
 </script>
 
@@ -30,19 +18,19 @@ async function createDriver() {
   <form id="createDriver" class="register" @submit.prevent>
     <div class="field">
       <label for="name" class="label">Name:</label>
-      <input id="name" class="driver-name" v-model="name" placeholder="Digite seu nome"/>
+      <input id="name" class="driver-name" v-model="driver.name" placeholder="Digite seu nome"/>
     </div>
     <div class="field">
       <label for="email" class="label">Email:</label>
-      <input id="email" class="driver-email" v-model="email" placeholder="Digite seu e-mail"/>
+      <input id="email" class="driver-email" v-model="driver.email" placeholder="Digite seu e-mail"/>
     </div>
     <div class="field">
       <label for="document" class="label">Document:</label>
-      <input id="document" class="driver-document" v-model="document" placeholder="Digite seu CPF"/>
+      <input id="document" class="driver-document" v-model="driver.document" placeholder="Digite seu CPF"/>
     </div>
     <div class="field">
       <label for="carPlate" class="label">Car Plate:</label>
-      <input id="carPlate" class="driver-carPlate" v-model="carPlate" placeholder="Digite a placa do carro"/>
+      <input id="carPlate" class="driver-carPlate" v-model="driver.carPlate" placeholder="Digite a placa do carro"/>
     </div>
     <button type="button" class="create-button" @click="createDriver()">Create Driver</button>
     <div class="id">{{ driverId }}</div>
