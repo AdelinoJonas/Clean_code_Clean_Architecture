@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import CreatePassengerVue from "../src/CreatePassenger.vue";
+import CreatePassenger from "../src/CreatePassenger.vue";
 import PassengerGatewayHttp from "../src/infra/gateway/PassengerGatewayHttp";
 import AxiosAdapter from "../src/infra/http/AxiosAdapter";
 
@@ -12,12 +12,8 @@ function sleep (time: number) {
 };
 
 test("Deve criar um passageiro", async function () {
-	// const passengerGateway: PassengerGateway = {
-	// 	async save (passenger: any): Promise<any> {
-	// 		return { passengerId: "98846fa9-7c06-4ad8-ac5f-9c96f50406bd" };
-	// 	}
-	// };
-	const wrapper = mount(CreatePassengerVue, {
+
+	const wrapper = mount(CreatePassenger, {
 		global: {
 			provide: {
 				passengerGateway: new PassengerGatewayHttp(new AxiosAdapter())
@@ -31,3 +27,9 @@ test("Deve criar um passageiro", async function () {
 	await sleep(200);
   expect(wrapper.get(".id").text()).toBeDefined();
 });
+
+	// const passengerGateway: PassengerGateway = {
+	// 	async save (passenger: any): Promise<any> {
+	// 		return { passengerId: "98846fa9-7c06-4ad8-ac5f-9c96f50406bd" };
+	// 	}
+	// };

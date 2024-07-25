@@ -16,6 +16,7 @@ async function createDriver() {
 
 <template>
   <form id="createDriver" class="register" @submit.prevent>
+    <p class="title">CRIAR CONTA COMO MOTORISTA</p>
     <div class="field">
       <label for="name" class="label">Name:</label>
       <input id="name" class="driver-name" v-model="driver.name" placeholder="Digite seu nome"/>
@@ -45,6 +46,12 @@ async function createDriver() {
   background: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .field {

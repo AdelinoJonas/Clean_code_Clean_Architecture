@@ -25,8 +25,8 @@ test("Deve criar um motorista", async function () {
 			}
 		}
 	});
-  await wrapper.get(".driver-name").setValue("JOANA");
-  await wrapper.get(".driver-email").setValue("JOANA@gmail.com");
+  await wrapper.get(".driver-name").setValue("Joana Due");
+  await wrapper.get(".driver-email").setValue("joana@gmail.com");
   await wrapper.get(".driver-document").setValue("07382201910");
   await wrapper.get(".driver-carPlate").setValue("AAA9999");
   await wrapper.get(".create-button").trigger("click");
