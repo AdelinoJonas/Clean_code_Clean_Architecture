@@ -35,7 +35,7 @@
       <label for="document" class="label">Document:</label>
       <input id="document" class="passenger-document" v-model="passengerBuilder.document" placeholder="Digite o documento"/>
     </div>
-    <button class="create-button" @click.prevent="createPassenger">Cadastrar Passageiro</button>
+    <button class="create-button" @click.prevent="createPassenger">REGISTER</button>
     <div v-if="passenger">
       <div class="id">{{ passenger.passengerId }}</div>
     </div>
@@ -44,14 +44,19 @@
 </template>
 
 <style scoped>
-  .register {
-    width: 400px;
+   .register {
+    width: 500px;
+    height: 60%;
     margin: auto;
     padding: 20px;
     background: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   .title {
@@ -61,6 +66,7 @@
   }
 
   .field {
+    width: 400px;
     margin-bottom: 15px;
   }
 
@@ -85,11 +91,15 @@
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
-    color: white;
+    color: #111c15;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    -webkit-box-shadow: 7px 9px 16px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 9px 16px 0px rgba(0,0,0,0.75);
+    box-shadow: 7px 9px 16px 0px rgba(0,0,0,0.75);
   }
 
   .create-button:hover {
