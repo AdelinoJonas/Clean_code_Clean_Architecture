@@ -15,7 +15,6 @@ export default class PassengerGatewayHttp implements PassengerGateway {
         try {
 					const response = await this.httpClient.post("http://localhost:3000/passengers", input);
 					const passengerId = response.data.passenger_id.toString();
-					console.log("ID", passengerId);
 					return passengerId;
 			} catch (error:any) {
 					if (error) {

@@ -5,20 +5,24 @@
 
 	const passengerBuilder = ref(new PassengerBuilder());
 	const passenger = ref();
+  const error = ref("");
 
 	const passengerGateway = inject("passengerGateway") as PassengerGateway;
 
-	async function createPassenger () {
-    passenger.value = passengerBuilder.value.build();
-    let createdPassengerId = await passengerGateway.create(passenger.value);
-    passenger.value.passengerId = createdPassengerId;
-    console.log('USECASE', createdPassengerId);
-	}
-</script>
+  async function createPassenger () {
+    try {	
+      passenger.value = passengerBuilder.value.build();
+      let createdPassengerId = await passengerGateway.create(passenger.value);
+      passenger.value.passengerId = createdPassengerId;
+    } catch (e:any) {
+      error.value = e.message;
+    }
+  }
+</script>  
 
 <template>
   <form id="createPassenger" class="register">
-    <p class="title">CRIAR CONTA COMO PASSAGEIRO</p>
+    <p class="title">SIGN UP PASSENGER</p>
     <div class="field">
       <label for="name" class="label">Name:</label>
       <input id="name" class="passenger-name" v-model="passengerBuilder.name" placeholder="Digite seu nome"/>
@@ -36,6 +40,7 @@
       <div class="id">{{ passenger.passengerId }}</div>
     </div>
   </form>
+  <div class="error" v-if="error">{{ error }}</div>
 </template>
 
 <style scoped>
@@ -52,6 +57,7 @@
   .title {
     font-size: 1.5rem;
     text-align: center;
+    text-decoration: 3px underline;
   }
 
   .field {
@@ -94,5 +100,19 @@
     margin-top: 10px;
     font-size: 18px;
     text-align: center;
+  }
+
+  .error {
+    width: 90%;
+    border-radius: 10px;
+    border: 3px solid rgb(185, 42, 42);
+    background-color: rgb(218, 84, 84);
+    color: #f2dada;
+    font-size: 3rem;
+    line-height: 4.5rem;
+    font-weight: 500;
+    text-align: center;
+    position:fixed;
+    margin-top: -700px;
   }
 </style>
