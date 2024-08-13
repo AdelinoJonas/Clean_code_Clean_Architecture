@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import { inject, ref } from 'vue';
-	import PassengerGateway from './infra/gateway/PassengerGateway';
-	import {PassengerBuilder} from './domain/Passenger';
+	import PassengerGateway from '../infra/gateway/PassengerGateway';
+	import {PassengerBuilder} from '../domain/Passenger';
 
 	const passengerBuilder = ref(new PassengerBuilder());
 	const passenger = ref();
@@ -51,12 +51,15 @@
     padding: 20px;
     background: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    -webkit-box-shadow: 7px 9px 16px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 9px 16px 0px rgba(0,0,0,0.75);
+    box-shadow: 7px 9px 16px 0px rgba(0,0,0,0.75);
   }
 
   .title {
@@ -73,7 +76,7 @@
   .label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .passenger-name,
@@ -88,12 +91,12 @@
 
   .create-button {
     display: block;
-    width: 100%;
+    width: 60%;
     padding: 10px;
     background-color: #4CAF50;
     color: #111c15;
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;

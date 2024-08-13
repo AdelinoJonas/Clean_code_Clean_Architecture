@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import CreatePassenger from "../src/CreatePassenger.vue";
+import CreatePassenger from "../src/view/CreatePassenger.vue";
 import PassengerGatewayHttp from "../src/infra/gateway/PassengerGatewayHttp";
 import AxiosAdapter from "../src/infra/http/AxiosAdapter";
 

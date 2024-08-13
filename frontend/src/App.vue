@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import CreatePassenger from "./CreatePassenger.vue";
-  import CreateDriver from "./CreateDriver.vue";
+  import CreatePassenger from "./view/CreatePassenger.vue";
+  import CreateDriver from "./view/CreateDriver.vue";
 </script>
 
 <template>

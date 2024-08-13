@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import CreateDriver from "../src/CreateDriver.vue";
+import CreateDriver from "../src/view/CreateDriver.vue";
 import DriverGatewayHttp from "../src/infra/gateway/DriverGatewayHttp";
 import AxiosAdapter from "../src/infra/http/AxiosAdapter";
 
